@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TokoKLONTONG - Kebutuhan Harian Modern</title>
+    <style>
+        /* CSS RESET & VARIABLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #10B981;
+            --primary-dark: #059669;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+            --gray: #6B7280;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* HEADER & NAVBAR */
+        header {
+            background: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--dark);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn-cart {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-cart:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #E6F4EA 0%, #FFFFFF 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        /* PRODUCTS SECTION */
+        .products-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;
+            background-color: #E5E7EB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-category {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-top: auto;
+            margin-bottom: 1rem;
+        }
+
+        .btn-buy {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-buy:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 2rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .footer-col p, .footer-col a {
+            color: #9CA3AF;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9CA3AF;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">Toko<span>KLONTONG</span></a>
+            <ul class="nav-links">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#produk">Produk</a></li>
+                <li><a href="#tentang">Tentang Kami</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+            <a href="#" class="btn-cart">Keranjang (0)</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="beranda">
+        <div class="hero-content">
+            <h1>Belanja Sembako Lengkap, Cepat & Cuan</h1>
+            <p>Memenuhi kebutuhan harian keluarga Anda dengan produk segar, terjamin, dan harga terjangkau langsung ke pintu rumah.</p>
+        </div>
+    </section>
+
+    <main class="products-section" id="produk">
+        <h2 class="section-title">Produk Terpopuler</h2>
+        
+        <div class="product-grid">
+            <article class="product-card">
+                <div class="product-image">Gambar Beras</div>
+                <div class="product-info">
+                    <span class="product-category">Sembako</span>
+                    <h3 class="product-title">Beras Premium 5kg</h3>
+                    <p class="product-price">Rp 68.000</p>
+                    <button class="btn-buy">+ Keranjang</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">Gambar Minyak</div>
+                <div class="product-info">
+                    <span class="product-category">Sembako</span>
+                    <h3 class="product-title">Minyak Goreng 2L</h3>
+                    <p class="product-price">Rp 34.000</p>
+                    <button class="btn-buy">+ Keranjang</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">Gambar Gula</div>
+                <div class="product-info">
+                    <span class="product-category">Bumbu Dapur</span>
+                    <h3 class="product-title">Gula Pasir 1kg</h3>
+                    <p class="product-price">Rp 16.500</p>
+                    <button class="btn-buy">+ Keranjang</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">Gambar Kopi</div>
+                <div class="product-info">
+                    <span class="product-category">Minuman</span>
+                    <h3 class="product-title">Kopi Bubuk 200g</h3>
+                    <p class="product-price">Rp 12.000</p>
+                    <button class="btn-buy">+ Keranjang</button>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer id="kontak">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>TokoKLONTONG</h3>
+                <p>Solusi kebutuhan rumah tangga modern yang serba ada dan praktis.</p>
+            </div>
+            <div class="footer-col" id="tentang">
+                <h3>Navigasi</h3>
+                <a href="#beranda">Beranda</a>
+                <a href="#produk">Katalog Produk</a>
+                <a href="#">Promo Hari Ini</a>
+            </div>
+            <div class="footer-col">
+                <h3>Hubungi Kami</h3>
+                <p>WhatsApp: +62 812-3456-7890</p>
+                <p>Email: info@tokoklontong.com</p>
+                <p>Jl. Jendral Sudirman No. 123</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 TokoKLONTONG. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
